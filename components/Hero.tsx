@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { Phone, CalendarCheck } from "lucide-react";
 import { business } from "@/lib/business";
 import StarRating from "./StarRating";
-import ImagePlaceholder from "./ImagePlaceholder";
 
 export default function Hero() {
   return (
@@ -58,12 +57,19 @@ export default function Hero() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
         >
-          {/* TODO: replace with a real photo of the office interior or team */}
-          <ImagePlaceholder
-            label="Photo: Modern office interior / friendly team at work"
-            aspect="square"
-            className="w-full"
-          />
+          <div className="aspect-square w-full overflow-hidden rounded-3xl border border-brand-200/60 bg-gradient-to-br from-brand-100 via-brand-50 to-coral-50 shadow-inner">
+            <video
+              className="h-full w-full object-cover"
+              autoPlay
+              loop
+              muted
+              playsInline
+              aria-label="Rotating 3D model of a tooth"
+            >
+              <source src="/videos/tooth-model-360.webm" type="video/webm" />
+              <source src="/videos/tooth-model-360.mp4" type="video/mp4" />
+            </video>
+          </div>
         </motion.div>
       </div>
     </section>
