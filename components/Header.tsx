@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { Menu, X, Phone } from "lucide-react";
 import { business, navLinks } from "@/lib/business";
+import { LogoMark } from "./Logo";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -27,9 +28,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 border-b border-brand-100 bg-white/90 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2 font-display text-lg font-bold text-brand-800">
-          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-600 text-sm text-white">
-            CD
-          </span>
+          <LogoMark className="h-10 w-10 shrink-0" />
           <span className="hidden sm:inline">{business.shortName}</span>
         </Link>
 

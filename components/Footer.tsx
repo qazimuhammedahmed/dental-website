@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { MapPin, Phone, Clock } from "lucide-react";
 import { business, hours, navLinks } from "@/lib/business";
+import { LogoBadge } from "./Logo";
 
 // lucide-react no longer ships brand/logo icons, so Facebook and Instagram
 // glyphs are inlined here as small SVGs.
@@ -27,11 +28,11 @@ export default function Footer() {
     <footer className="border-t border-brand-100 bg-brand-900 text-brand-50">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-4 lg:px-8">
         <div>
-          <div className="flex items-center gap-2 font-display text-lg font-bold text-white">
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-coral-500 text-sm">
-              CD
+          <div className="flex items-center gap-3">
+            <LogoBadge className="h-20 w-20 shrink-0" />
+            <span className="font-display text-lg font-bold text-white">
+              {business.shortName}
             </span>
-            {business.shortName}
           </div>
           <p className="mt-4 text-sm leading-relaxed text-brand-200">
             {business.tagline}. Modern dental care for the whole family in the
