@@ -1,6 +1,6 @@
 import { GraduationCap } from "lucide-react";
 import { team } from "@/lib/business";
-import ImagePlaceholder from "./ImagePlaceholder";
+import { DentistAvatarIllustration } from "./illustrations";
 import AnimatedSection from "./AnimatedSection";
 
 export default function TeamSection() {
@@ -10,11 +10,7 @@ export default function TeamSection() {
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <AnimatedSection direction="none">
             {/* TODO: replace with a real headshot of Dr. Hassan */}
-            <ImagePlaceholder
-              label="Photo: Dr. Hassan headshot"
-              aspect="portrait"
-              className="mx-auto max-w-sm"
-            />
+            <DentistAvatarIllustration className="mx-auto aspect-[3/4] w-full max-w-sm rounded-3xl border border-brand-200/60 shadow-sm shadow-brand-900/10" />
           </AnimatedSection>
 
           <AnimatedSection>

@@ -2,8 +2,41 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { HeartHandshake, Eye, Cpu, GraduationCap } from "lucide-react";
 import { business, team } from "@/lib/business";
-import ImagePlaceholder from "@/components/ImagePlaceholder";
 import AnimatedSection from "@/components/AnimatedSection";
+import {
+  DentistAvatarIllustration,
+  OfficeExteriorIllustration,
+  ReceptionIllustration,
+  TreatmentRoomIllustration,
+  TeamAtWorkIllustration,
+  WhiteningIllustration,
+  ImplantIllustration,
+  AlignerIllustration,
+  XrayIllustration,
+} from "@/components/illustrations";
+
+const dentalWork = [
+  {
+    Illustration: WhiteningIllustration,
+    title: "Teeth Whitening",
+    description: "Brighter, more confident smiles with professional-grade whitening.",
+  },
+  {
+    Illustration: ImplantIllustration,
+    title: "Dental Implants",
+    description: "Durable, natural-looking replacements for missing teeth.",
+  },
+  {
+    Illustration: AlignerIllustration,
+    title: "Clear Aligners",
+    description: "Discreet, comfortable teeth straightening with Invisalign.",
+  },
+  {
+    Illustration: XrayIllustration,
+    title: "Digital X-Rays",
+    description: "Low-radiation digital imaging for precise, informed diagnoses.",
+  },
+];
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -56,7 +89,7 @@ export default function AboutPage() {
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <AnimatedSection direction="none">
               {/* TODO: replace with a real headshot of Dr. Hassan */}
-              <ImagePlaceholder label="Photo: Dr. Hassan headshot" aspect="portrait" className="mx-auto max-w-sm" />
+              <DentistAvatarIllustration className="mx-auto aspect-[3/4] w-full max-w-sm rounded-3xl border border-brand-200/60 shadow-sm shadow-brand-900/10" />
             </AnimatedSection>
             <AnimatedSection>
               <span className="text-sm font-semibold uppercase tracking-wide text-coral-600">
@@ -127,12 +160,66 @@ export default function AboutPage() {
             </h2>
           </AnimatedSection>
 
-          {/* TODO: replace with real photos of the office interior, exterior signage, and equipment */}
+          {/* TODO: replace these illustrations with real photos of the office interior, exterior signage, and equipment */}
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <ImagePlaceholder label="Photo: Office exterior signage" aspect="square" />
-            <ImagePlaceholder label="Photo: Reception / waiting area" aspect="square" />
-            <ImagePlaceholder label="Photo: Treatment room / equipment" aspect="square" />
-            <ImagePlaceholder label="Photo: Team at work" aspect="square" />
+            <figure className="overflow-hidden rounded-2xl border border-brand-100 shadow-sm shadow-brand-900/5">
+              <OfficeExteriorIllustration className="aspect-square w-full" />
+              <figcaption className="bg-white px-4 py-3 text-center text-sm font-medium text-brand-800">
+                Office Exterior
+              </figcaption>
+            </figure>
+            <figure className="overflow-hidden rounded-2xl border border-brand-100 shadow-sm shadow-brand-900/5">
+              <ReceptionIllustration className="aspect-square w-full" />
+              <figcaption className="bg-white px-4 py-3 text-center text-sm font-medium text-brand-800">
+                Reception &amp; Waiting Area
+              </figcaption>
+            </figure>
+            <figure className="overflow-hidden rounded-2xl border border-brand-100 shadow-sm shadow-brand-900/5">
+              <TreatmentRoomIllustration className="aspect-square w-full" />
+              <figcaption className="bg-white px-4 py-3 text-center text-sm font-medium text-brand-800">
+                Treatment Room
+              </figcaption>
+            </figure>
+            <figure className="overflow-hidden rounded-2xl border border-brand-100 shadow-sm shadow-brand-900/5">
+              <TeamAtWorkIllustration className="aspect-square w-full" />
+              <figcaption className="bg-white px-4 py-3 text-center text-sm font-medium text-brand-800">
+                Team at Work
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-brand-50/40 py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="mx-auto max-w-2xl text-center">
+            <span className="text-sm font-semibold uppercase tracking-wide text-coral-600">
+              Dental Work We Do
+            </span>
+            <h2 className="mt-3 font-display text-3xl font-bold text-brand-900 sm:text-4xl">
+              A Snapshot of Our Care
+            </h2>
+          </AnimatedSection>
+
+          {/* TODO: replace these illustrations with real before/after or in-treatment photos once available */}
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {dentalWork.map(({ Illustration, title, description }, i) => (
+              <AnimatedSection
+                key={title}
+                delay={i * 0.06}
+                className="overflow-hidden rounded-2xl border border-brand-100 bg-white shadow-sm shadow-brand-900/5"
+              >
+                <Illustration className="aspect-square w-full" />
+                <div className="p-5">
+                  <h3 className="font-display text-base font-semibold text-brand-900">
+                    {title}
+                  </h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-brand-800/70">
+                    {description}
+                  </p>
+                </div>
+              </AnimatedSection>
+            ))}
           </div>
         </div>
       </section>
