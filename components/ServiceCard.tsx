@@ -9,9 +9,9 @@ export default function ServiceCard({ service }: { service: Service }) {
   return (
     <Link
       href={`/services#${service.slug}`}
-      className="group flex h-full flex-col rounded-2xl border border-brand-100 bg-white p-6 shadow-sm shadow-brand-900/5 transition hover:-translate-y-1 hover:border-brand-200 hover:shadow-md"
+      className="group flex h-full flex-col rounded-2xl border border-brand-100 bg-brand-50 p-6 shadow-sm shadow-brand-900/5 transition hover:-translate-y-1 hover:border-brand-200 hover:shadow-md"
     >
-      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-50 text-brand-600 transition group-hover:bg-brand-600 group-hover:text-white">
+      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white text-brand-600 transition group-hover:bg-brand-600 group-hover:text-white">
         {Icon && <Icon className="h-6 w-6" aria-hidden="true" />}
       </div>
       <h3 className="mt-4 font-display text-lg font-semibold text-brand-900">
