@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+import { MotionConfig } from "framer-motion";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -83,12 +84,14 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
-        <Header />
-        <main id="main-content" className="flex-1">
-          {children}
-        </main>
-        <Footer />
-        <MobileCallButton />
+        <MotionConfig reducedMotion="user">
+          <Header />
+          <main id="main-content" className="flex-1">
+            {children}
+          </main>
+          <Footer />
+          <MobileCallButton />
+        </MotionConfig>
       </body>
     </html>
   );
