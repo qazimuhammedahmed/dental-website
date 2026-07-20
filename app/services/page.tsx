@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <>
-      <section className="bg-gradient-to-b from-brand-50 to-white py-16 sm:py-20">
+      <section className="bg-gradient-to-b from-brand-50 to-white py-20">
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
           <span className="text-sm font-semibold uppercase tracking-wide text-coral-600">
             Our Services
@@ -55,10 +55,10 @@ export default function ServicesPage() {
             <section
               key={service.slug}
               id={service.slug}
-              className="scroll-mt-24 py-16"
+              className="scroll-mt-24 py-20"
             >
               <AnimatedSection
-                className={`grid items-center gap-10 lg:grid-cols-2 ${
+                className={`grid items-center gap-12 lg:grid-cols-2 ${
                   reversed ? "lg:[&>*:first-child]:order-2" : ""
                 }`}
               >
@@ -74,7 +74,7 @@ export default function ServicesPage() {
                   </p>
                   <Link
                     href="/book-appointment"
-                    className="mt-6 inline-flex items-center justify-center rounded-full bg-coral-500 px-6 py-3 text-sm font-semibold text-white shadow-sm shadow-coral-500/30 transition hover:bg-coral-600"
+                    className="mt-6 inline-flex items-center justify-center rounded-full bg-coral-500 px-7 py-3.5 text-base font-semibold text-white shadow-lg shadow-coral-500/30 transition hover:bg-coral-600"
                   >
                     Schedule Consultation
                   </Link>
@@ -99,7 +99,7 @@ export default function ServicesPage() {
         })}
       </div>
 
-      <section className="bg-brand-900 py-16 text-center text-white">
+      <section className="bg-brand-900 py-20 text-center text-white">
         <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
           <h2 className="font-display text-3xl font-bold">Not Sure Where to Start?</h2>
           <p className="mt-4 text-brand-200">

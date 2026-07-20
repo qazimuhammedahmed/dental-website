@@ -31,7 +31,7 @@ export default function ServicesOverview() {
         <div className="mt-12 text-center">
           <Link
             href="/services"
-            className="inline-flex items-center justify-center rounded-full border-2 border-brand-600 px-7 py-3 text-sm font-semibold text-brand-700 transition hover:bg-brand-600 hover:text-white"
+            className="inline-flex items-center justify-center rounded-full border-2 border-brand-600 px-7 py-3.5 text-base font-semibold text-brand-700 transition hover:bg-brand-600 hover:text-white"
           >
             View All Services
           </Link>

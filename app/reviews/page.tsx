@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function ReviewsPage() {
   return (
     <>
-      <section className="bg-gradient-to-b from-brand-50 to-white py-16 sm:py-20">
+      <section className="bg-gradient-to-b from-brand-50 to-white py-20">
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
           <span className="text-sm font-semibold uppercase tracking-wide text-coral-600">
             Patient Reviews
@@ -38,7 +38,7 @@ export default function ReviewsPage() {
         </div>
       </section>
 
-      <section className="py-16">
+      <section className="py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {testimonials.map((review, i) => (
@@ -63,7 +63,7 @@ export default function ReviewsPage() {
         </div>
       </section>
 
-      <section className="bg-brand-900 py-16 text-center text-white">
+      <section className="bg-brand-900 py-20 text-center text-white">
         <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
           <h2 className="font-display text-3xl font-bold">Had a Great Visit?</h2>
           <p className="mt-4 text-brand-200">

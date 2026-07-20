@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <section className="bg-gradient-to-b from-brand-50 to-white py-16 sm:py-20">
+      <section className="bg-gradient-to-b from-brand-50 to-white py-20">
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
           <span className="text-sm font-semibold uppercase tracking-wide text-coral-600">
             Contact Us
@@ -27,7 +27,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="py-16">
+      <section className="py-20">
         <div className="mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-5 lg:px-8">
           <AnimatedSection direction="none" className="lg:col-span-3">
             <div className="rounded-3xl border border-brand-100 bg-white p-6 shadow-sm shadow-brand-900/5 sm:p-8">

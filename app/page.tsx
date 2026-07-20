@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { CalendarCheck } from "lucide-react";
 import Hero from "@/components/Hero";
 import TrustBar from "@/components/TrustBar";
 import ServicesOverview from "@/components/ServicesOverview";
@@ -37,23 +36,28 @@ export default function Home() {
       <WhyChooseUs />
       <MapSection />
 
-      <section className="bg-white py-20">
-        <AnimatedSection className="mx-auto flex max-w-2xl flex-col items-center px-4 text-center sm:px-6 lg:px-8">
-          <h2 className="font-display text-3xl font-bold text-brand-900 sm:text-4xl">
-            Ready to Get Started?
-          </h2>
-          <p className="mt-4 text-brand-800/70">
+      <section className="bg-brand-900 py-16 text-center text-white">
+        <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
+          <h2 className="font-display text-3xl font-bold">Ready to Get Started?</h2>
+          <p className="mt-4 text-brand-200">
             Book your visit with {business.shortName} today and experience
             gentle, modern dental care in Huntington Beach.
           </p>
-          <Link
-            href="/book-appointment"
-            className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-coral-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-coral-500/30 transition hover:bg-coral-600"
-          >
-            <CalendarCheck className="h-5 w-5" aria-hidden="true" />
-            Book an Appointment
-          </Link>
-        </AnimatedSection>
+          <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+            <Link
+              href="/book-appointment"
+              className="inline-flex items-center justify-center rounded-full bg-coral-500 px-7 py-3.5 text-base font-semibold text-white shadow-lg shadow-coral-500/30 transition hover:bg-coral-600"
+            >
+              Book an Appointment
+            </Link>
+            <a
+              href={`tel:${business.phone.href}`}
+              className="inline-flex items-center justify-center rounded-full border-2 border-white px-7 py-3.5 text-base font-semibold text-white transition hover:bg-white hover:text-brand-800"
+            >
+              Call {business.phone.display}
+            </a>
+          </div>
+        </div>
       </section>
     </>
   );
