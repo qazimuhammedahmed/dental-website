@@ -45,15 +45,15 @@ export default function ReviewsPage() {
               <AnimatedSection
                 key={review.quote}
                 delay={i * 0.05}
-                className="flex h-full flex-col rounded-2xl border border-brand-100 bg-white p-6 shadow-sm shadow-brand-900/5"
+                className="flex h-full flex-col rounded-2xl border border-brand-800 bg-brand-900 p-6 shadow-sm shadow-brand-900/20"
               >
-                <Quote className="h-8 w-8 text-brand-100" aria-hidden="true" />
-                <p className="mt-3 flex-1 leading-relaxed text-brand-800/90">
+                <Quote className="h-8 w-8 text-brand-800" aria-hidden="true" />
+                <p className="mt-3 flex-1 leading-relaxed text-brand-100">
                   &ldquo;{review.quote}&rdquo;
                 </p>
                 <div className="mt-5 flex items-center justify-between">
                   <StarRating rating={5} />
-                  <span className="text-sm font-semibold text-brand-700">
+                  <span className="text-sm font-semibold text-brand-200">
                     {review.author}
                   </span>
                 </div>

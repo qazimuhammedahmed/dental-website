@@ -47,6 +47,19 @@ function validate(values: FormState): Errors {
   return errors;
 }
 
+// Order matches the checks in validate() above, so focus lands on
+// whichever field the user would hit first when fixing errors top-to-bottom.
+const validationOrder: (keyof FormState)[] = ["name", "phone", "email", "service", "preferredDate"];
+const fieldIds: Record<keyof FormState, string> = {
+  name: "ab-name",
+  phone: "ab-phone",
+  email: "ab-email",
+  service: "ab-service",
+  preferredDate: "ab-date",
+  preferredTime: "ab-time",
+  notes: "ab-notes",
+};
+
 // TODO: Replace this form submission with a real scheduling integration,
 // e.g. a Calendly inline embed, NexHealth booking widget, or a Dentrix API
 // call. Until then this form only validates client-side and simulates a
@@ -70,7 +83,13 @@ export default function AppointmentForm() {
     e.preventDefault();
     const validationErrors = validate(values);
     setErrors(validationErrors);
-    if (Object.keys(validationErrors).length > 0) return;
+    if (Object.keys(validationErrors).length > 0) {
+      const firstErrorField = validationOrder.find((field) => validationErrors[field]);
+      if (firstErrorField) {
+        document.getElementById(fieldIds[firstErrorField])?.focus();
+      }
+      return;
+    }
 
     setStatus("submitting");
     await new Promise((resolve) => setTimeout(resolve, 900));
@@ -80,7 +99,11 @@ export default function AppointmentForm() {
 
   if (status === "success") {
     return (
-      <div className="flex flex-col items-center gap-3 rounded-2xl border border-brand-100 bg-brand-50 p-10 text-center">
+      <div
+        role="status"
+        aria-live="polite"
+        className="flex flex-col items-center gap-3 rounded-2xl border border-brand-100 bg-brand-50 p-10 text-center"
+      >
         <CheckCircle2 className="h-10 w-10 text-brand-600" aria-hidden="true" />
         <h3 className="font-display text-xl font-semibold text-brand-900">
           Request Received

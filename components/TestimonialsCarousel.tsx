@@ -1,13 +1,18 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { ChevronLeft, ChevronRight, Pause, Play, Quote } from "lucide-react";
 import { testimonials } from "@/lib/business";
 import StarRating from "./StarRating";
 
 export default function TestimonialsCarousel() {
   const [index, setIndex] = useState(0);
+  const prefersReducedMotion = useReducedMotion();
+  // Always start unpaused so server and client render the same initial
+  // markup; the effect below pauses immediately post-mount if the real
+  // (client-only) reduced-motion preference calls for it.
+  const [paused, setPaused] = useState(false);
 
   const next = useCallback(() => {
     setIndex((i) => (i + 1) % testimonials.length);
@@ -18,15 +23,22 @@ export default function TestimonialsCarousel() {
   }, []);
 
   useEffect(() => {
+    // Reduced-motion preference always wins, regardless of the manual
+    // pause/play toggle below — auto-advancing content should never run
+    // for users who asked the OS to reduce motion.
+    if (paused || prefersReducedMotion) return;
     const timer = setInterval(next, 6000);
     return () => clearInterval(timer);
-  }, [next]);
+  }, [next, paused, prefersReducedMotion]);
 
   const current = testimonials[index];
 
   return (
     <div className="relative mx-auto max-w-3xl">
-      <div className="relative overflow-hidden rounded-3xl border border-brand-100 bg-white p-8 shadow-sm shadow-brand-900/5 sm:p-12">
+      <div
+        className="relative overflow-hidden rounded-3xl border border-brand-100 bg-white p-8 shadow-sm shadow-brand-900/5 sm:p-12"
+        aria-live="polite"
+      >
         <Quote className="h-10 w-10 text-brand-100" aria-hidden="true" />
         <AnimatePresence mode="wait">
           <motion.div
@@ -81,6 +93,14 @@ export default function TestimonialsCarousel() {
           className="flex h-10 w-10 items-center justify-center rounded-full border border-brand-200 text-brand-600 transition hover:bg-brand-50"
         >
           <ChevronRight className="h-5 w-5" />
+        </button>
+        <button
+          type="button"
+          onClick={() => setPaused((p) => !p)}
+          aria-label={paused ? "Play testimonial auto-rotation" : "Pause testimonial auto-rotation"}
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-brand-200 text-brand-600 transition hover:bg-brand-50"
+        >
+          {paused ? <Play className="h-4 w-4" /> : <Pause className="h-4 w-4" />}
         </button>
       </div>
     </div>

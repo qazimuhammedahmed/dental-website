@@ -1,12 +1,29 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Phone, CalendarCheck } from "lucide-react";
 import { business } from "@/lib/business";
 import StarRating from "./StarRating";
 
 export default function Hero() {
+  const prefersReducedMotion = useReducedMotion();
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  // The <video> element is always rendered (so server and client markup
+  // match on hydration) — whether it actually plays is decided here,
+  // after mount, once the real prefers-reduced-motion value is known.
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (prefersReducedMotion) {
+      video.pause();
+    } else {
+      video.play().catch(() => {});
+    }
+  }, [prefersReducedMotion]);
+
   return (
     <section className="relative flex min-h-[85vh] items-center overflow-hidden bg-brand-900">
       {/*
@@ -16,8 +33,8 @@ export default function Hero() {
         office/team footage) before this site goes live.
       */}
       <video
+        ref={videoRef}
         className="absolute inset-0 h-full w-full object-cover"
-        autoPlay
         loop
         muted
         playsInline

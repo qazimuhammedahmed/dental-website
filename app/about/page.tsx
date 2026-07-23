@@ -132,15 +132,15 @@ export default function AboutPage() {
               <AnimatedSection
                 key={value.title}
                 delay={i * 0.08}
-                className="rounded-2xl border border-brand-100 bg-white p-6 text-center shadow-sm shadow-brand-900/5"
+                className="rounded-2xl border border-brand-800 bg-brand-900 p-6 text-center shadow-sm shadow-brand-900/20"
               >
-                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-brand-50 text-brand-600">
+                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-white text-brand-600">
                   <value.icon className="h-6 w-6" aria-hidden="true" />
                 </div>
-                <h3 className="mt-4 font-display text-lg font-semibold text-brand-900">
+                <h3 className="mt-4 font-display text-lg font-semibold text-white">
                   {value.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-brand-800/70">
+                <p className="mt-2 text-sm leading-relaxed text-brand-200">
                   {value.description}
                 </p>
               </AnimatedSection>
@@ -207,14 +207,14 @@ export default function AboutPage() {
               <AnimatedSection
                 key={title}
                 delay={i * 0.06}
-                className="overflow-hidden rounded-2xl border border-brand-100 bg-white shadow-sm shadow-brand-900/5"
+                className="overflow-hidden rounded-2xl border border-brand-800 bg-brand-900 shadow-sm shadow-brand-900/20"
               >
                 <Illustration className="aspect-square w-full" />
                 <div className="p-5">
-                  <h3 className="font-display text-base font-semibold text-brand-900">
+                  <h3 className="font-display text-base font-semibold text-white">
                     {title}
                   </h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-brand-800/70">
+                  <p className="mt-1.5 text-sm leading-relaxed text-brand-200">
                     {description}
                   </p>
                 </div>
